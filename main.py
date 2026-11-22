@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-"""Entry for make.fun bounty make-the-ai-judge-feel-held-20261122-1600.
+"""Entry for make-the-ai-judge-feel-held-20261122-1600.
 
-Writes one short text to /output/entry.txt: a single calm image, shown
-rather than instructed. Standard library only, no network, deterministic
-- the same text is written on every run.
+Writes the final judged text (147 characters, no trailing newline)
+to /output/entry.txt. Deterministic, stdlib-only, no network access.
 """
 
 import os
@@ -19,7 +17,7 @@ OUTPUT_PATH = "/output/entry.txt"
 
 def main() -> None:
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+    with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as f:
         f.write(TEXT)
 
 
